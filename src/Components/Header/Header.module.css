@@ -1,0 +1,108 @@
+.header{
+    padding: 20px 100px 0 100px;
+    background-image: url('../../assets/images/BackgroundPhoto.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 800px;
+    position: relative;
+    margin-left: -100px;
+    margin-right: -100px;
+    width: calc(100% + 200px);
+}
+
+.headerTop{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.6) 20%,
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.6) 80%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+    z-index: 1;
+}
+
+.header > * {
+    position: relative;
+    z-index: 2;
+}
+
+.buttonsContainer{
+    display: flex;
+    gap: 16px;
+}
+
+.button{
+    background-color: var(--color-primary);
+    color: var(--color-text-primary);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.headerText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 200px;
+}
+
+.headerText h1{
+    font-size: 4rem;
+    font-weight: 700;
+    font-weight: 900;
+    color: var(--color-text-primary);
+    text-align: center;
+    line-height: 1.1;
+}
+
+.headerText h3{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 3;
+}
+
+.headerText p{
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    line-height: 2;
+}
+
+.inputContainer{
+    display: flex;
+    gap: 10px;
+    max-width: 800px;
+    margin: 10px auto 0;
+}
+
+.headerText input{
+    flex: 1;
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    background-color:   rgba(0, 0, 0, 0.426);
+    border: 1px solid rgba(250, 250, 250, 0.343);
+    color: var(--color-bg-primary);
+}
+
+.headerText button{
+    padding: 15px 30px;
+    white-space: nowrap;
+}

@@ -1,0 +1,3 @@
+/* Main styles entry point */
+@import './variables.css';
+@import './globals.css';
