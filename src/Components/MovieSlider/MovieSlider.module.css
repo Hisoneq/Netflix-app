@@ -1,0 +1,49 @@
+.slider{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+}
+
+.navButton{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.navButton:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.navButton.prev {
+    left: 10px;
+}
+
+.navButton.next {
+    right: 10px;
+}
+
+.moviesGrid {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+}
+
+.moviesGrid.animating {
+    transform: translateX(-100%);
+}

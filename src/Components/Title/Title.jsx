@@ -1,10 +1,10 @@
 import { memo } from 'react'
 import styles from './Title.module.css'
 
-function Title() {
+function Title({title}) {
     return (
-        <div className={styles.trendingNow}>
-            <h1>Trending Now</h1>
+        <div className={styles.title}>
+            <h1>{title}</h1>
         </div>
     )
 }

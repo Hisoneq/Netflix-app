@@ -25,6 +25,19 @@
     font-size: 0.9rem;
 }
 
+.title{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: var(--color-text-primary);
+    padding: 20px 10px 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+}
+
 .card:hover {
     transform: scale(1.01);
 }
