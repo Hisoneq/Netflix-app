@@ -1,10 +1,15 @@
+import { memo } from 'react'
+import FavoriteButton from '../FavoriteButton/FavoriteButton'
 import styles from './MovieCard.module.css'
 
-export default function MovieCard({image, rating}){
+function MovieCard({image, rating}){
     return(
         <div className={styles.card}>
-            <div> Rating: {rating}</div>
+            <div className={styles.rating}> IMDb: {rating}</div>
             <img src={image} alt="" />
+            <FavoriteButton />
         </div>
     )
 }
+
+export default memo(MovieCard)

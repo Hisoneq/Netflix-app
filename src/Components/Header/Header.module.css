@@ -40,6 +40,28 @@
     z-index: 2;
 }
 
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: radial-gradient(
+        ellipse 100% 200% at 50% 0%,
+        #ff0080 0%,
+        #ff0040 30%,
+        #ff0080 60%,
+        transparent 100%
+    );
+    border-radius: 50% 50% 0 0;
+    box-shadow: 
+        0 0 20px rgba(255, 0, 128, 0.8),
+        0 0 40px rgba(255, 0, 64, 0.6),
+        0 0 60px rgba(255, 0, 128, 0.4);
+    z-index: 3;
+}
+
 .buttonsContainer{
     display: flex;
     gap: 16px;
@@ -97,9 +119,9 @@
     border-radius: 5px;
     border: none;
     font-size: 1rem;
-    background-color:   rgba(0, 0, 0, 0.426);
+    background-color: rgba(0, 0, 0, 0.426);
     border: 1px solid rgba(250, 250, 250, 0.343);
-    color: var(--color-bg-primary);
+    color: var(--color-text-primary);
 }
 
 .headerText button{
