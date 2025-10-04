@@ -6,7 +6,7 @@ export default function ReasonsCardSet({reasonsCards}){
         <div className={styles.reasonsCardSet}>
            {
             reasonsCards.map((reason) => (
-                <ReasonsCard title={reason.title} description={reason.description} image={reason.image} />
+                <ReasonsCard key={reason.title} title={reason.title} description={reason.description} image={reason.image} />
             ))
            }
         </div>

@@ -4,16 +4,12 @@ import styles from "./Header.module.css"
 
 function Header(){
 
-
     const Languages = ["English", "Русский", "Español", "Français", "Deutsch"];
-    
-    const [isLanguageOpen, setIsLanguageOpen] = useState(false);
     const [currentLanguage, setCurrentLanguage] = useState(Languages[0]);
 
-    const handleLanguageClick = (language) => {
-        console.log('Language clicked:', language);
-        setCurrentLanguage(language);
-        setIsLanguageOpen(false);
+    const handleLanguageChange = (e) => {
+        const newLanguage = e.target.value;
+        setCurrentLanguage(newLanguage);
     }
 
 
@@ -28,20 +24,20 @@ function Header(){
                  />
 
                 <div className={styles.buttonsContainer}>
-                    <div className={styles.languageDropdown}>
-                        <button className={`${styles.button} ${styles.languageButton}`} onClick={() => setIsLanguageOpen(!isLanguageOpen)}>{currentLanguage} ▼</button>
-                        {
-                            isLanguageOpen && (
-                                <ul className={styles.languageMenu}>
-                                    { Languages.map((language) => (
-                                        <li key={language}>
-                                            <button className={styles.languageOption} onClick={() => handleLanguageClick(language)}>{language}</button>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )
-                        }
-                    </div>
+                    <select 
+                        value={currentLanguage}
+                        onChange={handleLanguageChange}
+                        className={styles.languageSelect}
+                    >
+                        {Languages.map((language) => (
+                            <option 
+                                key={language} 
+                                value={language}
+                            >
+                                {language}
+                            </option>
+                        ))}
+                    </select>
                     <button className={styles.button}>Sign In</button>
                 </div>
 
