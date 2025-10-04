@@ -1,9 +1,14 @@
 .slider{
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
     margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.sliderContainer{
+    overflow: hidden;
+    width: 1120px;
+    height: 300px;
+    margin: 0 auto;
 }
 
 .navButton{
@@ -21,8 +26,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10;
     transition: background 0.3s;
+}
+
+.navButton.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.navButton.prev {
+    left: 10px;
+}
+
+.navButton.next {
+    right: 10px;
 }
 
 .navButton:hover {
@@ -41,9 +58,11 @@
     display: flex;
     gap: 30px;
     transition: transform 0.3s ease-in-out;
-    transform: translateX(0);
+    width: fit-content;
 }
 
-.moviesGrid.animating {
-    transform: translateX(-100%);
+.moviesGrid > * {
+    width: 200px;
+    height: 300px;
+    flex-shrink: 0;
 }
