@@ -1,12 +1,12 @@
 .footer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 40px 20px;
 }
 
 .footerText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     font-size: 1rem;
     font-weight: 600;
     color: var(--color-text-primary);
@@ -21,6 +21,7 @@
     max-width: 800px;
     width: 100%;
     margin: 20px auto 0;
+    padding-bottom: 80px;
 }
 
 .inputContainer input{
@@ -46,4 +47,14 @@
     font-weight: 600;
     white-space: nowrap;
     min-width: 200px;
+}
+
+.footerLinks{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.footerLinks li{
+    list-style: none;
 }
