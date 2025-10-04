@@ -1,8 +1,22 @@
-import { memo } from "react"
+import { memo, useState } from "react"
 import logo from "../../assets/images/LogoNetflix.png"
 import styles from "./Header.module.css"
 
 function Header(){
+
+
+    const Languages = ["English", "Русский", "Español", "Français", "Deutsch"];
+    
+    const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+    const [currentLanguage, setCurrentLanguage] = useState(Languages[0]);
+
+    const handleLanguageClick = (language) => {
+        console.log('Language clicked:', language);
+        setCurrentLanguage(language);
+        setIsLanguageOpen(false);
+    }
+
+
     return (
         <header className={styles.header}>
             <div className={styles.headerTop}>
@@ -14,7 +28,20 @@ function Header(){
                  />
 
                 <div className={styles.buttonsContainer}>
-                    <button className={styles.button}>English</button>
+                    <div className={styles.languageDropdown}>
+                        <button className={`${styles.button} ${styles.languageButton}`} onClick={() => setIsLanguageOpen(!isLanguageOpen)}>{currentLanguage} ▼</button>
+                        {
+                            isLanguageOpen && (
+                                <ul className={styles.languageMenu}>
+                                    { Languages.map((language) => (
+                                        <li key={language}>
+                                            <button className={styles.languageOption} onClick={() => handleLanguageClick(language)}>{language}</button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )
+                        }
+                    </div>
                     <button className={styles.button}>Sign In</button>
                 </div>
 
