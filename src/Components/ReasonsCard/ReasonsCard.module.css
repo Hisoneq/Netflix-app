@@ -2,9 +2,10 @@
     position: relative;
     max-width: 300px;
     height: 300px;
-    background-color: rgba(27, 0, 63, 0.5);
+    background: linear-gradient(135deg, #2a006f, #8d0000);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.3);
 }
 
 .reasonsCard h1{
@@ -28,7 +29,6 @@
     height: 50px;
     object-fit: cover;
     border-radius: 5px;
-    background: linear-gradient(135deg, #EF4444, #8B5CF6);
     padding: 2px;
 }
 

@@ -1,0 +1,60 @@
+.faqElement{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background-color: #2e2e2e;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.faqHeader{
+    position: relative;
+    height: 70px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.faqElement h3{
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin: 0;
+    flex: 1;
+}
+
+.button{
+    color: var(--color-text-primary);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faqDescription{
+    padding: 20px;
+    background-color: #2e2e2e;
+    border-top: 1px solid #404040;
+}
+
+.faqDescription p{
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.rotated {
+    transform: rotate(45deg);
+}
+
+.faqElement:hover{
+    color: var(--color-text-primary);
+}
