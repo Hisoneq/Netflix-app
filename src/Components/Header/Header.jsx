@@ -1,8 +1,11 @@
 import { memo, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import logo from "../../assets/images/LogoNetflix.png"
 import styles from "./Header.module.css"
 
 function Header(){
+
+    const navigate = useNavigate();
 
     const Languages = ["English", "Русский", "Español", "Français", "Deutsch"];
     const [currentLanguage, setCurrentLanguage] = useState(Languages[0]);
@@ -10,6 +13,10 @@ function Header(){
     const handleLanguageChange = (e) => {
         const newLanguage = e.target.value;
         setCurrentLanguage(newLanguage);
+    }
+
+    const handleSignIn = () => {
+        navigate("/login");
     }
 
 
@@ -38,7 +45,7 @@ function Header(){
                             </option>
                         ))}
                     </select>
-                    <button className={styles.button}>Sign In</button>
+                    <button className={styles.button} onClick={handleSignIn}>Sign In</button>
                 </div>
 
             </div>

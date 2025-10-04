@@ -16,15 +16,9 @@ export default function Footer(){
         { link: "Corporate Information", href: "#" },
         { link: "Contact Us", href: "#" },
     ]
+
     return(
         <footer className={styles.footer}>
-            <p className={styles.footerText}>Ready to watch? Enter your email to create or restart your membership.</p>
-
-            <div className={styles.inputContainer}>
-                    <input type="email" placeholder="Email address" />
-                    <button className={styles.button}>Get Started →</button>
-            </div>
-
             <ul className={styles.footerLinks}>
                 {footerLinks.map((link) => (
                     <li key={link.link}>

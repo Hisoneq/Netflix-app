@@ -1,9 +1,13 @@
+import { Routes, Route } from "react-router-dom"
+
 import Header from "./Components/Header/Header"
 import Title from "./Components/Title/Title"
 import MovieSlider from "./Components/MovieSlider/MovieSlider"
 import ReasonsCardSet from "./Components/ReasonsCardSet/ReasonsCardSet"
-import FAQGroup from "./Components/FAQGroup/FAQGroup"
 import Footer from "./Components/Footer/Footer"
+import Login from "./Components/Login/Login"
+import MembershipForm from "./Components/MembershipForm/MembershipForm"
+import FAQGroup from "./Components/FAQGroup/FAQGroup"
 
 import TrumanShow from "./assets/images/TrumanShow.webp"        
 import Inception from "./assets/images/Inception.jpg"          
@@ -57,16 +61,26 @@ function App() {
   
 
   return (
-    <>
-      <Header />
-      <Title title="Trending Now" />
-      <MovieSlider movies={movies} />
-      <Title title="More Reasons to Join" />
-      <ReasonsCardSet reasonsCards={reasonsCards} />
-      <Title title="Frequently Asked Questions"/>
-      <FAQGroup faqs={FAQs} />
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/" element={
+        <>
+          <Header />
+          <Title title="Trending Now" />
+          <MovieSlider movies={movies} />
+          <Title title="More Reasons to Join" />
+          <ReasonsCardSet reasonsCards={reasonsCards} />
+          <FAQGroup faqs={FAQs} />
+          <MembershipForm />
+          <Footer />
+        </>
+      } />
+      <Route path="/login" element={
+        <>
+          <Login />
+          <Footer />
+        </>
+      } />
+    </Routes>
   )
 }
 
