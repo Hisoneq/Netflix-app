@@ -32,7 +32,7 @@
     background-color: rgba(0, 0, 0, 0.426);
     border: 1px solid rgba(250, 250, 250, 0.343);
     color: var(--color-text-primary);
-    min-width: 400px;
+    min-width: 350px;
 }
 
 .inputContainer button{
@@ -45,4 +45,5 @@
     font-size: 1rem;
     font-weight: 600;
     white-space: nowrap;
+    min-width: 200px;
 }

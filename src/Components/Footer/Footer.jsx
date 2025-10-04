@@ -7,7 +7,7 @@ export default function Footer(){
 
             <div className={styles.inputContainer}>
                     <input type="email" placeholder="Email address" />
-                    <button className={styles.button}>Get Started</button>
+                    <button className={styles.button}>Get Started →</button>
             </div>
         </footer>
     )
