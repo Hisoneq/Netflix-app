@@ -1,7 +1,15 @@
 import styles from "./Login.module.css"
 import logo from "../../assets/images/LogoNetflix.png"
+import { useNavigate } from "react-router-dom"
 
 export default function Login(){
+
+    const navigate = useNavigate();
+
+    const handleLogin = () => {
+        navigate("/");
+    }
+
     return(
         <div className={styles.login}>
             
@@ -9,7 +17,9 @@ export default function Login(){
                 src={logo} 
                 alt="Logo"
                 width={200}
-                 />
+                onClick={handleLogin}
+                style={{ cursor: "pointer" }}
+            />
 
             <div className={styles.loginForm}>
                 <h1>Sign In</h1>
