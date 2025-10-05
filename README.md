@@ -4,7 +4,7 @@
 
 ## 🎬 Демо
 
-https://github.com/user-attachments/assets/DemoNetflix.mp4
+![Demo Video](./DemoNetflix.mp4)
 
 *Демонстрация навигации, форм и анимаций*
 
