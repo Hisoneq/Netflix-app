@@ -35,7 +35,7 @@ export default function MovieSlider({movies}) {
                     style={{ transform: `translateX(-${currentSlide * 230}px)` }}
                 >
                     {movies.map(movie => (
-                        <MovieCard key={movie.id} image={movie.image} rating={movie.rating} title={movie.title} />
+                        <MovieCard key={movie.id} image={movie.image} rating={movie.rating} title={movie.title} id={movie.id}/>
                     ))}
                 </div>
             </div>
