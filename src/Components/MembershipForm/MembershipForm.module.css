@@ -43,3 +43,7 @@
     white-space: nowrap;
     min-width: 200px;
 }
+
+.inputContainer button:hover{
+    background-color: rgb(188, 0, 0);
+}

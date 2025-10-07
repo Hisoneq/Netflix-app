@@ -25,7 +25,7 @@ export default function Login(){
                 <h1>Sign In</h1>
                 <input type="email" placeholder="Email or phone number" />
                 <input type="password" placeholder="Password" />
-                <button>Sign In</button>
+                <button className={styles.signInButton}>Sign In</button>
                 <p className={styles.or}>OR</p>
                 <button className={styles.signInCodeButton}>Use a Sign-in code</button>
                 <a href="#" className={styles.forgotPassword}>Forgot your password?</a>

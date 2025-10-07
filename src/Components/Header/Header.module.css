@@ -78,6 +78,12 @@
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.button:hover{
+    background-color: rgb(188, 0, 0);
 }
 
 .headerText{
@@ -134,7 +140,14 @@
     padding: 15px 30px;
     white-space: nowrap;
     min-width: 200px;
+    background-color: var(--color-primary);
+    border: none;
 }
+
+.headerText button:hover{
+    background-color: rgb(188, 0, 0);
+}
+
 
 .languageSelect{
     background-color: rgba(0, 0, 0, 0.426);
