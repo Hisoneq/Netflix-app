@@ -1,0 +1,109 @@
+{
+  "header": {
+    "signIn": "Sign In",
+    "mainTitle": "Unlimited movies, TV<br/>shows, and more",
+    "subtitle": "Starts at EUR 7.99. Cancel anytime.",
+    "readyToWatch": "Ready to watch? Enter your email to create or restart your membership.",
+    "emailPlaceholder": "Email address",
+    "getStarted": "Get Started →"
+  },
+  "login": {
+    "signIn": "Sign In",
+    "emailPlaceholder": "Email or phone number",
+    "passwordPlaceholder": "Password",
+    "or": "OR",
+    "useSignInCode": "Use a Sign-in code",
+    "forgotPassword": "Forgot your password?",
+    "rememberMe": "Remember me",
+    "newToNetflix": "New to Netflix?",
+    "signUpNow": "Sign up now."
+  },
+  "membership": {
+    "readyToWatch": "Ready to watch? Enter your email to create or restart your membership.",
+    "emailPlaceholder": "Email address",
+    "getStarted": "Get Started →"
+  },
+  "titles": {
+    "trendingNow": "Trending Now",
+    "moreReasons": "More Reasons to Join"
+  },
+  "reasons": {
+    "enjoyOnTV": {
+      "title": "Enjoy on your TV",
+      "description": "Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more."
+    },
+    "download": {
+      "title": "Download your shows to watch offline",
+      "description": "Save your favorites easily and always have something to watch."
+    },
+    "watchEverywhere": {
+      "title": "Watch everywhere",
+      "description": "Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV."
+    },
+    "kidsProfiles": {
+      "title": "Create profiles for kids",
+      "description": "Send kids on adventures with their favorite characters in a space made just for them — free with your membership."
+    }
+  },
+  "faq": {
+    "whatIsNetflix": {
+      "title": "What is Netflix?",
+      "description": "Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices. You can watch as much as you want, whenever you want without a single commercial – all for one low monthly price. There's always something new to discover and new TV shows and movies are added every week!"
+    },
+    "howMuch": {
+      "title": "How mutch does Netflix cost?",
+      "description": "Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from EUR 7.99 to EUR 11.99 a month. No extra costs, no contracts."
+    },
+    "whereWatch": {
+      "title": "Where can I watch?",
+      "description": "Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles. You can also download your favorite shows with the iOS or Android app. Use downloads to watch while you're on the go and without an internet connection. Take Netflix with you anywhere."
+    },
+    "howCancel": {
+      "title": "How do I cancel?",
+      "description": "Netflix is flexible. There are no pesky contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime."
+    },
+    "whatWatch": {
+      "title": "What can I watch on Netflix?",
+      "description": "Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want."
+    },
+    "goodForKids": {
+      "title": "Is Netflix good for kids?",
+      "description": "The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space. Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don't want kids to see."
+    },
+    "language": {
+      "title": "Why am I seen this language?",
+      "description": "Your browser preferences determine the language shown here."
+    }
+  },
+  "footer": {
+    "faq": "FAQ",
+    "helpCenter": "Help Center",
+    "account": "Account",
+    "mediaCenter": "Media Center",
+    "investorRelations": "Investor Relations",
+    "jobs": "Jobs",
+    "waysToWatch": "Ways to Watch",
+    "termsOfUse": "Terms of Use",
+    "privacy": "Privacy",
+    "cookiePreferences": "Cookie Preferences",
+    "corporateInformation": "Corporate Information",
+    "contactUs": "Contact Us"
+  },
+  "languages": {
+    "english": "English",
+    "russian": "Русский"
+  },
+  "movies": {
+    "trumanShow": "The Truman Show",
+    "inception": "Inception",
+    "darkKnight": "The Dark Knight",
+    "interstellar": "Interstellar",
+    "pulpFiction": "Pulp Fiction",
+    "matrix": "The Matrix",
+    "forrestGump": "Forrest Gump",
+    "shawshank": "The Shawshank Redemption",
+    "goodfellas": "Goodfellas",
+    "godfather": "The Godfather"
+  }
+}
+

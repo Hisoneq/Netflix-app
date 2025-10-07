@@ -1,10 +1,12 @@
 import styles from "./Login.module.css"
 import logo from "../../assets/images/LogoNetflix.png"
 import { useNavigate } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 export default function Login(){
 
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     const handleLogin = () => {
         navigate("/");
@@ -22,20 +24,20 @@ export default function Login(){
             />
 
             <div className={styles.loginForm}>
-                <h1>Sign In</h1>
-                <input type="email" placeholder="Email or phone number" />
-                <input type="password" placeholder="Password" />
-                <button className={styles.signInButton}>Sign In</button>
-                <p className={styles.or}>OR</p>
-                <button className={styles.signInCodeButton}>Use a Sign-in code</button>
-                <a href="#" className={styles.forgotPassword}>Forgot your password?</a>
+                <h1>{t('login.signIn')}</h1>
+                <input type="email" placeholder={t('login.emailPlaceholder')} />
+                <input type="password" placeholder={t('login.passwordPlaceholder')} />
+                <button className={styles.signInButton}>{t('login.signIn')}</button>
+                <p className={styles.or}>{t('login.or')}</p>
+                <button className={styles.signInCodeButton}>{t('login.useSignInCode')}</button>
+                <a href="#" className={styles.forgotPassword}>{t('login.forgotPassword')}</a>
                 <div className={styles.checkboxContainer}>
                     <input type="checkbox" id="remember" />
-                    <label htmlFor="remember">Remember me</label>
+                    <label htmlFor="remember">{t('login.rememberMe')}</label>
                 </div>
                 <div className={styles.signupContainer}>
-                    <p className={styles.newToNetflix}>New to Netflix?</p>   
-                    <a className={styles.signUpButton} href="#">Sign up now.</a>
+                    <p className={styles.newToNetflix}>{t('login.newToNetflix')}</p>   
+                    <a className={styles.signUpButton} href="#">{t('login.signUpNow')}</a>
                 </div>
             </div>
         </div>

@@ -1,18 +1,21 @@
-import { memo, useState } from "react"
+import { memo } from "react"
 import { useNavigate } from "react-router-dom"
 import logo from "../../assets/images/LogoNetflix.png"
 import styles from "./Header.module.css"
+import { useTranslation, Trans } from "react-i18next"
 
 function Header(){
 
     const navigate = useNavigate();
+    const { t, i18n } = useTranslation();
 
-    const Languages = ["English", "Русский", "Español", "Français", "Deutsch"];
-    const [currentLanguage, setCurrentLanguage] = useState(Languages[0]);
+    const languages = [
+        { code: "en", name: t('languages.english') },
+        { code: "ru", name: t('languages.russian') }
+    ];
 
-    const handleLanguageChange = (e) => {
-        const newLanguage = e.target.value;
-        setCurrentLanguage(newLanguage);
+    const handleLanguageChange = (languageCode) => { 
+        i18n.changeLanguage(languageCode);
     }
 
     const handleSignIn = () => {
@@ -32,32 +35,32 @@ function Header(){
 
                 <div className={styles.buttonsContainer}>
                     <select 
-                        value={currentLanguage}
-                        onChange={handleLanguageChange}
+                        value={i18n.language}
+                        onChange={(e) => handleLanguageChange(e.target.value)}  
                         className={styles.languageSelect}
                     >
-                        {Languages.map((language) => (
+                        {languages.map((language) => (
                             <option 
-                                key={language} 
-                                value={language}
+                                key={language.code} 
+                                value={language.code}
                             >
-                                {language}
+                                {language.name}
                             </option>
                         ))}
                     </select>
-                    <button className={styles.button} onClick={handleSignIn}>Sign In</button>
+                    <button className={styles.button} onClick={handleSignIn}>{t('header.signIn')}</button>
                 </div>
 
             </div>
 
             <div className={styles.headerText}>
-                <h1>Unlimited movies, TV<br/>shows, and more</h1>
-                <h3>Starts at EUR 7.99. Cancel anytime.</h3>
-                <p>Ready to watch? Enter your email to create or restart your membership.</p>
+                <h1><Trans i18nKey="header.mainTitle" components={{ br: <br /> }} /></h1>
+                <h3>{t('header.subtitle')}</h3>
+                <p>{t('header.readyToWatch')}</p>
 
                 <div className={styles.inputContainer}>
-                    <input type="email" placeholder="Email address" />
-                    <button className={styles.button}>Get Started →</button>
+                    <input type="email" placeholder={t('header.emailPlaceholder')} />
+                    <button className={styles.button}>{t('header.getStarted')}</button>
                 </div>
 
             </div>
