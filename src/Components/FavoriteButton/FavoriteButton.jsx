@@ -1,5 +1,6 @@
 import { useState, memo } from "react"
 import styles from "./FavoriteButton.module.css"
+import HeartIcon from "../HeartIcon/HeartIcon"
 
 function FavoriteButton(){
     const [isFavorite, setIsFavorite] = useState(false);
@@ -12,9 +13,8 @@ function FavoriteButton(){
         <button 
             className={styles.favoriteButton}
             onClick={handleToggle}
-            aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
         >
-            {isFavorite ? '❤️' : '🤍'}
+            <HeartIcon isActive={isFavorite} />
         </button>
     )
 }

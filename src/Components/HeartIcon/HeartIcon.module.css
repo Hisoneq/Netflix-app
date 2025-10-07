@@ -1,0 +1,17 @@
+.heart,
+.heartActive {
+    transition: all 0.3s ease;
+}
+
+.heart .heartPath {
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    transition: all 0.3s ease;
+}
+
+.heartActive .heartPath {
+    fill: #e50914;
+    stroke: #e50914;
+    stroke-width: 2;
+}
