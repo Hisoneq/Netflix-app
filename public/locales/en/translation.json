@@ -24,6 +24,8 @@
     "emailPlaceholder": "Email address",
     "passwordPlaceholder": "Password",
     "confirmPasswordPlaceholder": "Confirm password",
+    "passwordMatch": "Passwords match!",
+    "passwordMismatch": "Passwords do not match",
     "alreadyHaveAccount": "Already have an account?",
     "signInNow": "Sign in now."
   },

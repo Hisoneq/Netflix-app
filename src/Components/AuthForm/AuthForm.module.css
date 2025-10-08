@@ -96,6 +96,40 @@
     color: rgba(255, 255, 255, 1);
 }
 
+.passwordMatch {
+    color: #00ff00;
+    font-size: 0.875rem;
+    margin: -15px 0 15px 0;
+    padding: 0;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.passwordMatch::before {
+    content: '✓';
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.passwordMismatch {
+    color: #ff4444;
+    font-size: 0.875rem;
+    margin: -15px 0 15px 0;
+    padding: 0;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.passwordMismatch::before {
+    content: '✗';
+    font-size: 1rem;
+    font-weight: bold;
+}
+
 .form h1 {
     font-size: 2rem;
     font-weight: 700;

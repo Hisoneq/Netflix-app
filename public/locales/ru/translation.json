@@ -24,6 +24,8 @@
     "emailPlaceholder": "Адрес электронной почты",
     "passwordPlaceholder": "Пароль",
     "confirmPasswordPlaceholder": "Подтвердите пароль",
+    "passwordMatch": "Пароли совпадают!",
+    "passwordMismatch": "Пароли не совпадают",
     "alreadyHaveAccount": "Уже есть аккаунт?",
     "signInNow": "Войдите сейчас."
   },

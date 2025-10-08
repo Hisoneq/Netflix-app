@@ -15,6 +15,10 @@ export default function AuthForm({
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [isPasswordMatch, setIsPasswordMatch] = useState(false);
+
     const [searchParams] = useSearchParams();
     const emailRef = useRef(null);
 
@@ -51,6 +55,20 @@ export default function AuthForm({
         setShowConfirmPassword(!showConfirmPassword);
     }
 
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    }
+
+    const handleConfirmPasswordChange = (e) => {
+        setConfirmPassword(e.target.value);
+    }
+
+    useEffect(() => {
+        if (type === "register" && password && confirmPassword) {
+            setIsPasswordMatch(password === confirmPassword);
+        }
+    }, [password, confirmPassword, type]);
+
     return (
         <div className={styles.authForm}>
             <img 
@@ -78,30 +96,49 @@ export default function AuthForm({
                             type={showPassword ? "text" : "password"} 
                             placeholder={t(`${type}.passwordPlaceholder`)} 
                             required
+                            value={password}
+                            onChange={handlePasswordChange}
                         />
-                        <span 
-                            className={styles.passwordToggle} 
-                            onClick={togglePasswordVisibility}
-                        >
-                            {showPassword ? <FaEyeSlash /> : <FaEye />}
-                        </span>
+                        {
+                            password && (
+                                <span 
+                                    className={styles.passwordToggle} 
+                                    onClick={togglePasswordVisibility}
+                                >
+                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                </span>
+                            )
+                        }
                     </div>
                     
                     {type === "register" && (
-                        <div className={styles.passwordContainer}>
-                            <input 
-                                name="confirmPassword"
-                                type={showConfirmPassword ? "text" : "password"} 
-                                placeholder={t('register.confirmPasswordPlaceholder')} 
-                                required
-                            />
-                            <span 
-                                className={styles.passwordToggle} 
-                                onClick={toggleConfirmPasswordVisibility}
-                            >
-                                {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-                            </span>
-                        </div>
+                        <>
+                            <div className={styles.passwordContainer}>
+                                <input 
+                                    name="confirmPassword"
+                                    type={showConfirmPassword ? "text" : "password"} 
+                                    placeholder={t('register.confirmPasswordPlaceholder')} 
+                                    required
+                                    value={confirmPassword}
+                                    onChange={handleConfirmPasswordChange}
+                                />
+                                {
+                                    confirmPassword && (
+                                        <span 
+                                            className={styles.passwordToggle} 
+                                            onClick={toggleConfirmPasswordVisibility}
+                                        >
+                                            {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                                        </span>
+                                    )
+                                }
+                            </div>
+                            {password && confirmPassword && (
+                                <p className={isPasswordMatch ? styles.passwordMatch : styles.passwordMismatch}>
+                                    {isPasswordMatch ? t('register.passwordMatch') : t('register.passwordMismatch')}
+                                </p>
+                            )}
+                        </>
                     )}
 
                     <button type="submit" className={styles.submitButton}>
