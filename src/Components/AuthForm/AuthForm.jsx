@@ -1,8 +1,9 @@
 import { useTranslation } from "react-i18next"
 import { useNavigate, useSearchParams } from "react-router-dom"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import styles from "./AuthForm.module.css"
 import logo from "../../assets/images/LogoNetflix.png"
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function AuthForm({ 
     type = "login", 
@@ -10,6 +11,10 @@ export default function AuthForm({
 }) {
     const navigate = useNavigate();
     const { t } = useTranslation();
+
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
     const [searchParams] = useSearchParams();
     const emailRef = useRef(null);
 
@@ -17,7 +22,6 @@ export default function AuthForm({
         navigate("/");
     }
 
-    // Автозаполнение email из URL параметров
     useEffect(() => {
         const emailFromUrl = searchParams.get('email');
         if (emailFromUrl && emailRef.current) {
@@ -37,6 +41,14 @@ export default function AuthForm({
         if (onSubmit) {
             onSubmit(data);
         }
+    }
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    }
+
+    const toggleConfirmPasswordVisibility = () => {
+        setShowConfirmPassword(!showConfirmPassword);
     }
 
     return (
@@ -59,20 +71,37 @@ export default function AuthForm({
                         placeholder={t(`${type}.emailPlaceholder`)} 
                         required
                     />
-                    <input 
-                        name="password"
-                        type="password" 
-                        placeholder={t(`${type}.passwordPlaceholder`)} 
-                        required
-                    />
                     
-                    {type === "register" && (
+                    <div className={styles.passwordContainer}>
                         <input 
-                            name="confirmPassword"
-                            type="password" 
-                            placeholder={t('register.confirmPasswordPlaceholder')} 
+                            name="password"
+                            type={showPassword ? "text" : "password"} 
+                            placeholder={t(`${type}.passwordPlaceholder`)} 
                             required
                         />
+                        <span 
+                            className={styles.passwordToggle} 
+                            onClick={togglePasswordVisibility}
+                        >
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        </span>
+                    </div>
+                    
+                    {type === "register" && (
+                        <div className={styles.passwordContainer}>
+                            <input 
+                                name="confirmPassword"
+                                type={showConfirmPassword ? "text" : "password"} 
+                                placeholder={t('register.confirmPasswordPlaceholder')} 
+                                required
+                            />
+                            <span 
+                                className={styles.passwordToggle} 
+                                onClick={toggleConfirmPasswordVisibility}
+                            >
+                                {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                            </span>
+                        </div>
                     )}
 
                     <button type="submit" className={styles.submitButton}>
@@ -86,7 +115,11 @@ export default function AuthForm({
                         <button className={styles.signInCodeButton}>
                             {t('login.useSignInCode')}
                         </button>
-                        <a href="#" className={styles.forgotPassword}>
+                        <a
+                            href="#"
+                            className={styles.forgotPassword}
+                            onClick={(e) => e.preventDefault()}
+                        >
                             {t('login.forgotPassword')}
                         </a>
                         <div className={styles.checkboxContainer}>
