@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useSearchParams } from "react-router-dom"
+import { useEffect, useRef } from "react"
 import styles from "./AuthForm.module.css"
 import logo from "../../assets/images/LogoNetflix.png"
 
@@ -9,10 +10,20 @@ export default function AuthForm({
 }) {
     const navigate = useNavigate();
     const { t } = useTranslation();
+    const [searchParams] = useSearchParams();
+    const emailRef = useRef(null);
 
     const handleLogoClick = () => {
         navigate("/");
     }
+
+    // Автозаполнение email из URL параметров
+    useEffect(() => {
+        const emailFromUrl = searchParams.get('email');
+        if (emailFromUrl && emailRef.current) {
+            emailRef.current.value = emailFromUrl;
+        }
+    }, [searchParams]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -42,6 +53,7 @@ export default function AuthForm({
                 <h1>{type === 'login' ? t('login.signIn') : t('register.signUp')}</h1>
                 <form onSubmit={handleSubmit}>
                     <input 
+                        ref={emailRef}
                         name="email"
                         type="email" 
                         placeholder={t(`${type}.emailPlaceholder`)} 

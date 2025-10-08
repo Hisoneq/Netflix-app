@@ -1,4 +1,4 @@
-import { memo } from "react"
+import { memo, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import logo from "../../assets/images/LogoNetflix.png"
 import styles from "./Header.module.css"
@@ -7,6 +7,7 @@ import { useTranslation, Trans } from "react-i18next"
 function Header(){
 
     const navigate = useNavigate();
+    const emailRef = useRef(null);
     const { t, i18n } = useTranslation();
 
     const languages = [
@@ -20,6 +21,16 @@ function Header(){
 
     const handleSignIn = () => {
         navigate("/login");
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const email = emailRef.current.value;
+        if (email) {
+            navigate(`/register?email=${encodeURIComponent(email)}`);
+        } else {
+            navigate('/register');
+        }
     }
 
 
@@ -58,10 +69,14 @@ function Header(){
                 <h3>{t('header.subtitle')}</h3>
                 <p>{t('header.readyToWatch')}</p>
 
-                <div className={styles.inputContainer}>
-                    <input type="email" placeholder={t('header.emailPlaceholder')} />
-                    <button className={styles.button}>{t('header.getStarted')}</button>
-                </div>
+                <form className={styles.inputContainer} onSubmit={handleSubmit}>
+                    <input 
+                    ref={emailRef}
+                    type="email" 
+                    placeholder={t('header.emailPlaceholder')}
+                     />
+                    <button className={styles.button} type="submit">{t('header.getStarted')}</button>
+                </form>
 
             </div>
         </header>
