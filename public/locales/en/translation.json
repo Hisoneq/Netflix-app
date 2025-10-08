@@ -9,6 +9,7 @@
   },
   "login": {
     "signIn": "Sign In",
+    "signUp": "Sign In",
     "emailPlaceholder": "Email or phone number",
     "passwordPlaceholder": "Password",
     "or": "OR",
@@ -17,6 +18,14 @@
     "rememberMe": "Remember me",
     "newToNetflix": "New to Netflix?",
     "signUpNow": "Sign up now."
+  },
+  "register": {
+    "signUp": "Sign Up",
+    "emailPlaceholder": "Email address",
+    "passwordPlaceholder": "Password",
+    "confirmPasswordPlaceholder": "Confirm password",
+    "alreadyHaveAccount": "Already have an account?",
+    "signInNow": "Sign in now."
   },
   "membership": {
     "readyToWatch": "Ready to watch? Enter your email to create or restart your membership.",

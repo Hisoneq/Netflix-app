@@ -9,6 +9,7 @@
   },
   "login": {
     "signIn": "Войти",
+    "signUp": "Войти",
     "emailPlaceholder": "Электронная почта или номер телефона",
     "passwordPlaceholder": "Пароль",
     "or": "ИЛИ",
@@ -17,6 +18,14 @@
     "rememberMe": "Запомнить меня",
     "newToNetflix": "Впервые на Netflix?",
     "signUpNow": "Зарегистрируйтесь."
+  },
+  "register": {
+    "signUp": "Регистрация",
+    "emailPlaceholder": "Адрес электронной почты",
+    "passwordPlaceholder": "Пароль",
+    "confirmPasswordPlaceholder": "Подтвердите пароль",
+    "alreadyHaveAccount": "Уже есть аккаунт?",
+    "signInNow": "Войдите сейчас."
   },
   "membership": {
     "readyToWatch": "Готовы смотреть? Введите адрес электронной почты, чтобы оформить или возобновить подписку.",
