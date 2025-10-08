@@ -19,6 +19,8 @@ export default function AuthForm({
     const [confirmPassword, setConfirmPassword] = useState("");
     const [isPasswordMatch, setIsPasswordMatch] = useState(false);
 
+    const [lengthError, setLengthError] = useState(false);
+
     const [searchParams] = useSearchParams();
     const emailRef = useRef(null);
 
@@ -67,6 +69,12 @@ export default function AuthForm({
         if (type === "register" && password && confirmPassword) {
             setIsPasswordMatch(password === confirmPassword);
         }
+
+        if (type === "register" && password && password.length < 8) {
+            setLengthError(true);
+        } else {
+            setLengthError(false);
+        }
     }, [password, confirmPassword, type]);
 
     return (
@@ -109,6 +117,11 @@ export default function AuthForm({
                                 </span>
                             )
                         }
+                        {
+                            lengthError && (
+                                <p className={styles.passwordLengthError}>{t('register.passwordLengthError')}</p>
+                            )
+                        }
                     </div>
                     
                     {type === "register" && (
@@ -131,6 +144,7 @@ export default function AuthForm({
                                             {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
                                         </span>
                                     )
+                                    
                                 }
                             </div>
                             {password && confirmPassword && (

@@ -26,6 +26,7 @@
     "confirmPasswordPlaceholder": "Confirm password",
     "passwordMatch": "Passwords match!",
     "passwordMismatch": "Passwords do not match",
+    "passwordLengthError": "Password must be at least 8 characters",
     "alreadyHaveAccount": "Already have an account?",
     "signInNow": "Sign in now."
   },

@@ -26,6 +26,7 @@
     "confirmPasswordPlaceholder": "Подтвердите пароль",
     "passwordMatch": "Пароли совпадают!",
     "passwordMismatch": "Пароли не совпадают",
+    "passwordLengthError": "Пароль должен содержать минимум 8 символов",
     "alreadyHaveAccount": "Уже есть аккаунт?",
     "signInNow": "Войдите сейчас."
   },
