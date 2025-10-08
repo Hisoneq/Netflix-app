@@ -1,3 +1,4 @@
+import { memo } from "react"
 import styles from "./HeartIcon.module.css";
 
 function HeartIcon({ isActive = false }) {
@@ -18,4 +19,4 @@ function HeartIcon({ isActive = false }) {
     );
 }
 
-export default HeartIcon;
+export default memo(HeartIcon);

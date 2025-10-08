@@ -1,10 +1,10 @@
-import { memo, useRef } from "react"
+import { useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import logo from "../../assets/images/LogoNetflix.png"
 import styles from "./Header.module.css"
 import { useTranslation, Trans } from "react-i18next"
 
-function Header(){
+export default function Header(){
 
     const navigate = useNavigate();
     const emailRef = useRef(null);
@@ -82,5 +82,3 @@ function Header(){
         </header>
     )
 }
-
-export default memo(Header)

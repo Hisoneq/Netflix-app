@@ -1,12 +1,9 @@
-import { memo } from 'react'
 import styles from './Title.module.css'
 
-function Title({title}) {
+export default function Title({title}) {
     return (
         <div className={styles.title}>
             <h1>{title}</h1>
         </div>
     )
 }
-
-export default memo(Title)

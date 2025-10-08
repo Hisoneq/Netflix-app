@@ -1,13 +1,13 @@
 import styles from './FAQElement.module.css'
-import { useState } from 'react';
+import { useState, memo, useCallback } from 'react';
 
-export default function FAQElement({ title, description }) {
+function FAQElement({ title, description }) {
 
     const [isOpen, setIsOpen] = useState(false);
 
-    const handleToggle = () => {
-        setIsOpen(!isOpen);
-    };
+    const handleToggle = useCallback(() => {
+        setIsOpen(prev => !prev);
+    }, []);
 
   return (
     <div className={styles.faqElement}>
@@ -19,3 +19,5 @@ export default function FAQElement({ title, description }) {
     </div>
   );
 }
+
+export default memo(FAQElement);

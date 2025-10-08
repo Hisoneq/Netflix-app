@@ -1,6 +1,7 @@
+import { memo } from "react"
 import styles from "./ReasonsCard.module.css"
 
-export default function ReasonsCard({title, description, image}){
+function ReasonsCard({title, description, image}){
     return (
         <div className={styles.reasonsCard}>
             <h1>{title}</h1>
@@ -9,3 +10,5 @@ export default function ReasonsCard({title, description, image}){
         </div>
     )
 }
+
+export default memo(ReasonsCard);

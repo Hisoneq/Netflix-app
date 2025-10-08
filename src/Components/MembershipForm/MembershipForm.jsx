@@ -1,7 +1,7 @@
+import { useRef } from "react"
 import styles from "./MembershipForm.module.css"
 import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
-import { useRef } from "react"
 
 export default function MembershipForm(){
     const { t } = useTranslation();

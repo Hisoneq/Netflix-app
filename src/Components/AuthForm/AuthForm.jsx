@@ -50,11 +50,11 @@ export default function AuthForm({
     }
 
     const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
+        setShowPassword(prev => !prev);
     }
 
     const toggleConfirmPasswordVisibility = () => {
-        setShowConfirmPassword(!showConfirmPassword);
+        setShowConfirmPassword(prev => !prev);
     }
 
     const handlePasswordChange = (e) => {

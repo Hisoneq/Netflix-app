@@ -1,3 +1,4 @@
+import { useMemo } from "react"
 import { useTranslation } from "react-i18next"
 
 import Header from "../../Components/Header/Header"
@@ -27,7 +28,7 @@ import HappyBox from "../../assets/images/HappyBox.png"
 export default function HomePage() {
   const { t } = useTranslation();
 
-  const movies = [
+  const movies = useMemo(() => [
     { id: 1, image: TrumanShow, rating: 9.9, title: t('movies.trumanShow') },
     { id: 2, image: Inception, rating: 8.5, title: t('movies.inception') },
     { id: 3, image: TheDarkKnight, rating: 9.2, title: t('movies.darkKnight') },
@@ -38,16 +39,16 @@ export default function HomePage() {
     { id: 8, image: TheShawshankRedemption, rating: 8.9, title: t('movies.shawshank') },
     { id: 9, image: Goodfellas, rating: 8.6, title: t('movies.goodfellas') },
     { id: 10, image: TheGodfather, rating: 9.3, title: t('movies.godfather') }
-  ];
+  ], [t]);
 
-  const reasonsCards = [
+  const reasonsCards = useMemo(() => [
     { title: t('reasons.enjoyOnTV.title'), description: t('reasons.enjoyOnTV.description'), image: Dekstop },
     { title: t('reasons.download.title'), description: t('reasons.download.description'), image: Download },
     { title: t('reasons.watchEverywhere.title'), description: t('reasons.watchEverywhere.description'), image: Telescope },
     { title: t('reasons.kidsProfiles.title'), description: t('reasons.kidsProfiles.description'), image: HappyBox },
-  ];
+  ], [t]);
 
-  const FAQs = [
+  const FAQs = useMemo(() => [
     { title: t('faq.whatIsNetflix.title'), description: t('faq.whatIsNetflix.description') },
     { title: t('faq.howMuch.title'), description: t('faq.howMuch.description') },
     { title: t('faq.whereWatch.title'), description: t('faq.whereWatch.description') },
@@ -55,7 +56,7 @@ export default function HomePage() {
     { title: t('faq.whatWatch.title'), description: t('faq.whatWatch.description') },
     { title: t('faq.goodForKids.title'), description: t('faq.goodForKids.description') },
     { title: t('faq.language.title'), description: t('faq.language.description') },
-  ];
+  ], [t]);
 
   return (
     <>
