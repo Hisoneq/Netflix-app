@@ -39,7 +39,7 @@ export default function AuthForm({
             />
 
             <div className={styles.form}>
-                <h1>{t(`${type}.signIn`)}</h1>
+                <h1>{type === 'login' ? t('login.signIn') : t('register.signUp')}</h1>
                 <form onSubmit={handleSubmit}>
                     <input 
                         name="email"
