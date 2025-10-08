@@ -2,8 +2,11 @@ import styles from "./Login.module.css"
 import logo from "../../assets/images/LogoNetflix.png"
 import { useNavigate } from "react-router-dom"
 import { useTranslation } from "react-i18next"
+import { useState } from "react"
 
 export default function Login(){
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const navigate = useNavigate();
     const { t } = useTranslation();
@@ -25,8 +28,8 @@ export default function Login(){
 
             <div className={styles.loginForm}>
                 <h1>{t('login.signIn')}</h1>
-                <input type="email" placeholder={t('login.emailPlaceholder')} />
-                <input type="password" placeholder={t('login.passwordPlaceholder')} />
+                <input type="email" placeholder={t('login.emailPlaceholder')} value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="password" placeholder={t('login.passwordPlaceholder')} value={password} onChange={(e) => setPassword(e.target.value)} />
                 <button className={styles.signInButton}>{t('login.signIn')}</button>
                 <p className={styles.or}>{t('login.or')}</p>
                 <button className={styles.signInCodeButton}>{t('login.useSignInCode')}</button>
