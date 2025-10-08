@@ -3,30 +3,20 @@ import { useNavigate, useSearchParams } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import styles from "./AuthForm.module.css"
 import logo from "../../assets/images/LogoNetflix.png"
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import PasswordInput from "../PasswordInput/PasswordInput"
 
-export default function AuthForm({ 
-    type = "login", 
-    onSubmit 
-}) {
+export default function AuthForm({ type = "login", onSubmit }) {
     const navigate = useNavigate();
     const { t } = useTranslation();
-
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [isPasswordMatch, setIsPasswordMatch] = useState(false);
-
-    const [lengthError, setLengthError] = useState(false);
-
     const [searchParams] = useSearchParams();
     const emailRef = useRef(null);
 
-    const handleLogoClick = () => {
-        navigate("/");
-    }
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+
+    const isRegister = type === "register";
+    const lengthError = isRegister && password && password.length < 8;
+    const isPasswordMatch = password === confirmPassword;
 
     useEffect(() => {
         const emailFromUrl = searchParams.get('email');
@@ -38,44 +28,8 @@ export default function AuthForm({
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        const data = {
-            email: formData.get('email'),
-            password: formData.get('password'),
-            ...(type === 'register' && { confirmPassword: formData.get('confirmPassword') })
-        };
-        
-        if (onSubmit) {
-            onSubmit(data);
-        }
+        onSubmit?.(formData.get('email'), formData.get('password'));
     }
-
-    const togglePasswordVisibility = () => {
-        setShowPassword(prev => !prev);
-    }
-
-    const toggleConfirmPasswordVisibility = () => {
-        setShowConfirmPassword(prev => !prev);
-    }
-
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    }
-
-    const handleConfirmPasswordChange = (e) => {
-        setConfirmPassword(e.target.value);
-    }
-
-    useEffect(() => {
-        if (type === "register" && password && confirmPassword) {
-            setIsPasswordMatch(password === confirmPassword);
-        }
-
-        if (type === "register" && password && password.length < 8) {
-            setLengthError(true);
-        } else {
-            setLengthError(false);
-        }
-    }, [password, confirmPassword, type]);
 
     return (
         <div className={styles.authForm}>
@@ -83,70 +37,43 @@ export default function AuthForm({
                 src={logo} 
                 alt="Logo"
                 width={200}
-                onClick={handleLogoClick}
+                onClick={() => navigate("/")}
                 style={{ cursor: "pointer" }}
             />
 
             <div className={styles.form}>
-                <h1>{type === 'login' ? t('login.signIn') : t('register.signUp')}</h1>
+                <h1>{isRegister ? t('register.signUp') : t('login.signIn')}</h1>
                 <form onSubmit={handleSubmit}>
                     <input 
                         ref={emailRef}
                         name="email"
                         type="email" 
-                        placeholder={t(`${type}.emailPlaceholder`)} 
+                        placeholder={t(`${type}.emailPlaceholder`)}
                         required
                     />
                     
-                    <div className={styles.passwordContainer}>
-                        <input 
-                            name="password"
-                            type={showPassword ? "text" : "password"} 
-                            placeholder={t(`${type}.passwordPlaceholder`)} 
-                            required
-                            value={password}
-                            onChange={handlePasswordChange}
-                        />
-                        {
-                            password && (
-                                <span 
-                                    className={styles.passwordToggle} 
-                                    onClick={togglePasswordVisibility}
-                                >
-                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                                </span>
-                            )
-                        }
-                        {
-                            lengthError && (
-                                <p className={styles.passwordLengthError}>{t('register.passwordLengthError')}</p>
-                            )
-                        }
-                    </div>
+                    <PasswordInput
+                        name="password"
+                        placeholder={t(`${type}.passwordPlaceholder`)}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
                     
-                    {type === "register" && (
+                    {lengthError && (
+                        <p className={styles.passwordLengthError}>
+                            {t('register.passwordLengthError')}
+                        </p>
+                    )}
+                    
+                    {isRegister && (
                         <>
-                            <div className={styles.passwordContainer}>
-                                <input 
-                                    name="confirmPassword"
-                                    type={showConfirmPassword ? "text" : "password"} 
-                                    placeholder={t('register.confirmPasswordPlaceholder')} 
-                                    required
-                                    value={confirmPassword}
-                                    onChange={handleConfirmPasswordChange}
-                                />
-                                {
-                                    confirmPassword && (
-                                        <span 
-                                            className={styles.passwordToggle} 
-                                            onClick={toggleConfirmPasswordVisibility}
-                                        >
-                                            {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-                                        </span>
-                                    )
-                                    
-                                }
-                            </div>
+                            <PasswordInput
+                                name="confirmPassword"
+                                placeholder={t('register.confirmPasswordPlaceholder')}
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                            />
+                            
                             {password && confirmPassword && (
                                 <p className={isPasswordMatch ? styles.passwordMatch : styles.passwordMismatch}>
                                     {isPasswordMatch ? t('register.passwordMatch') : t('register.passwordMismatch')}
@@ -181,21 +108,12 @@ export default function AuthForm({
                 )}
 
                 <div className={styles.switchContainer}>
-                    {type === "login" ? (
-                        <>
-                            <p className={styles.switchText}>{t('login.newToNetflix')}</p>   
-                            <a className={styles.switchButton} href="/register">
-                                {t('login.signUpNow')}
-                            </a>
-                        </>
-                    ) : (
-                        <>
-                            <p className={styles.switchText}>{t('register.alreadyHaveAccount')}</p>   
-                            <a className={styles.switchButton} href="/login">
-                                {t('register.signInNow')}
-                            </a>
-                        </>
-                    )}
+                    <p className={styles.switchText}>
+                        {isRegister ? t('register.alreadyHaveAccount') : t('login.newToNetflix')}
+                    </p>   
+                    <a className={styles.switchButton} href={isRegister ? "/login" : "/register"}>
+                        {isRegister ? t('register.signInNow') : t('login.signUpNow')}
+                    </a>
                 </div>
             </div>
         </div>

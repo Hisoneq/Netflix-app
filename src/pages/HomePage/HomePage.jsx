@@ -1,5 +1,6 @@
 import { useMemo } from "react"
 import { useTranslation } from "react-i18next"
+// import { useAuth } from "../../hooks/use-auth"
 
 import Header from "../../Components/Header/Header"
 import Title from "../../Components/Title/Title"
@@ -57,6 +58,8 @@ export default function HomePage() {
     { title: t('faq.goodForKids.title'), description: t('faq.goodForKids.description') },
     { title: t('faq.language.title'), description: t('faq.language.description') },
   ], [t]);
+
+  // const { isAuth, email } = useAuth();
 
   return (
     <>

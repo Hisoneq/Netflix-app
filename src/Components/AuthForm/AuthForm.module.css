@@ -67,35 +67,6 @@
     margin-bottom: 20px;
 }
 
-.passwordContainer {
-    position: relative;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.passwordContainer input {
-    margin-bottom: 0;
-    padding-right: 50px;
-}
-
-.passwordToggle {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1.2rem;
-    transition: color 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.passwordToggle:hover {
-    color: rgba(255, 255, 255, 1);
-}
-
 .passwordMatch {
     color: #00ff00;
     font-size: 0.875rem;
