@@ -5,7 +5,8 @@
     "subtitle": "Starts at EUR 7.99. Cancel anytime.",
     "readyToWatch": "Ready to watch? Enter your email to create or restart your membership.",
     "emailPlaceholder": "Email address",
-    "getStarted": "Get Started →"
+    "getStarted": "Get Started →",
+    "logout": "Logout"
   },
   "login": {
     "signIn": "Sign In",

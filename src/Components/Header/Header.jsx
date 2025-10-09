@@ -3,8 +3,13 @@ import { useNavigate } from "react-router-dom"
 import logo from "../../assets/images/LogoNetflix.png"
 import styles from "./Header.module.css"
 import { useTranslation, Trans } from "react-i18next"
+import { useAuth } from "../../hooks/use-auth"
+import { useDispatch } from "react-redux"
+import { removeUser } from "../../store/slices/userSlice"
 
 export default function Header(){
+    const dispatch = useDispatch();
+    const { isAuth } = useAuth();
 
     const navigate = useNavigate();
     const emailRef = useRef(null);
@@ -59,7 +64,13 @@ export default function Header(){
                             </option>
                         ))}
                     </select>
-                    <button className={styles.button} onClick={handleSignIn}>{t('header.signIn')}</button>
+
+                    {
+                        isAuth ? 
+                        <button className={styles.button} onClick={()=>dispatch(removeUser())}>{t('header.logout')}</button> :
+                        <button className={styles.button} onClick={handleSignIn}>{t('header.signIn')}</button>
+                    }
+                    
                 </div>
 
             </div>
