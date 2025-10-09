@@ -11,7 +11,7 @@ export default function Login() {
     const [error, setError] = useState("");
 
     const handleLogin = (email, password) => {
-        setError(""); // Очистка предыдущей ошибки
+        setError("");
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
             .then(({ user }) => {

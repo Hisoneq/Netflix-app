@@ -6,6 +6,7 @@ import { useTranslation, Trans } from "react-i18next"
 import { useAuth } from "../../hooks/use-auth"
 import { useDispatch } from "react-redux"
 import { removeUser } from "../../store/slices/userSlice"
+import { getAuth, signOut } from "firebase/auth"
 
 export default function Header(){
     const dispatch = useDispatch();
@@ -38,6 +39,18 @@ export default function Header(){
         }
     }
 
+    const handleLogout = () => {
+        const auth = getAuth();
+        signOut(auth)
+            .then(() => {
+                dispatch(removeUser());
+                navigate("/");
+            })
+            .catch((error) => {
+                console.error('Logout error:', error);
+            });
+    }
+
 
     return (
         <header className={styles.header}>
@@ -67,7 +80,7 @@ export default function Header(){
 
                     {
                         isAuth ? 
-                        <button className={styles.button} onClick={()=>dispatch(removeUser())}>{t('header.logout')}</button> :
+                        <button className={styles.button} onClick={handleLogout}>{t('header.logout')}</button> :
                         <button className={styles.button} onClick={handleSignIn}>{t('header.signIn')}</button>
                     }
                     
