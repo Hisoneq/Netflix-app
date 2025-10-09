@@ -104,8 +104,8 @@
 .passwordLengthError {
     color: #ff9800;
     font-size: 0.875rem;
-    margin: 5px 0;
-    padding: 0;
+    margin: -15px 0 15px 0;
+    padding: 0px;
     font-weight: 500;
     display: flex;
     align-items: center;
