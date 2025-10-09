@@ -23,3 +23,13 @@
 .favoriteButton:active {
     transform: scale(0.95);
 }
+
+.favoriteButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.favoriteButton:disabled:hover {
+    transform: none;
+    background: rgba(0, 0, 0, 0.7);
+}
