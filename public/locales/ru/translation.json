@@ -18,7 +18,15 @@
     "forgotPassword": "Забыли пароль?",
     "rememberMe": "Запомнить меня",
     "newToNetflix": "Впервые на Netflix?",
-    "signUpNow": "Зарегистрируйтесь."
+    "signUpNow": "Зарегистрируйтесь.",
+    "errors": {
+      "invalidCredential": "Неверный email или пароль",
+      "userNotFound": "Пользователь с таким email не найден",
+      "wrongPassword": "Неверный пароль",
+      "invalidEmail": "Неверный формат email",
+      "tooManyRequests": "Слишком много попыток входа. Попробуйте позже",
+      "default": "Ошибка входа. Попробуйте еще раз"
+    }
   },
   "register": {
     "signUp": "Регистрация",
@@ -29,7 +37,14 @@
     "passwordMismatch": "Пароли не совпадают",
     "passwordLengthError": "Пароль должен содержать минимум 8 символов",
     "alreadyHaveAccount": "Уже есть аккаунт?",
-    "signInNow": "Войдите сейчас."
+    "signInNow": "Войдите сейчас.",
+    "errors": {
+      "emailAlreadyInUse": "Пользователь с таким email уже существует",
+      "invalidEmail": "Неверный формат email",
+      "weakPassword": "Пароль слишком слабый. Используйте минимум 6 символов",
+      "operationNotAllowed": "Регистрация временно недоступна",
+      "default": "Ошибка регистрации. Попробуйте еще раз"
+    }
   },
   "membership": {
     "readyToWatch": "Готовы смотреть? Введите адрес электронной почты, чтобы оформить или возобновить подписку.",

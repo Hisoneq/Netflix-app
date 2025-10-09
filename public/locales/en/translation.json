@@ -18,7 +18,15 @@
     "forgotPassword": "Forgot your password?",
     "rememberMe": "Remember me",
     "newToNetflix": "New to Netflix?",
-    "signUpNow": "Sign up now."
+    "signUpNow": "Sign up now.",
+    "errors": {
+      "invalidCredential": "Invalid email or password",
+      "userNotFound": "User with this email not found",
+      "wrongPassword": "Invalid password",
+      "invalidEmail": "Invalid email format",
+      "tooManyRequests": "Too many login attempts. Please try later",
+      "default": "Login error. Please try again"
+    }
   },
   "register": {
     "signUp": "Sign Up",
@@ -29,7 +37,14 @@
     "passwordMismatch": "Passwords do not match",
     "passwordLengthError": "Password must be at least 8 characters",
     "alreadyHaveAccount": "Already have an account?",
-    "signInNow": "Sign in now."
+    "signInNow": "Sign in now.",
+    "errors": {
+      "emailAlreadyInUse": "User with this email already exists",
+      "invalidEmail": "Invalid email format",
+      "weakPassword": "Password is too weak. Use at least 6 characters",
+      "operationNotAllowed": "Registration is temporarily unavailable",
+      "default": "Registration error. Please try again"
+    }
   },
   "membership": {
     "readyToWatch": "Ready to watch? Enter your email to create or restart your membership.",

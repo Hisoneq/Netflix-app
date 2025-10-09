@@ -5,7 +5,7 @@ import styles from "./AuthForm.module.css"
 import logo from "../../assets/images/LogoNetflix.png"
 import PasswordInput from "../PasswordInput/PasswordInput"
 
-export default function AuthForm({ type = "login", onSubmit }) {
+export default function AuthForm({ type = "login", onSubmit, error }) {
     const navigate = useNavigate();
     const { t } = useTranslation();
     const [searchParams] = useSearchParams();
@@ -43,6 +43,13 @@ export default function AuthForm({ type = "login", onSubmit }) {
 
             <div className={styles.form}>
                 <h1>{isRegister ? t('register.signUp') : t('login.signIn')}</h1>
+                
+                {error && (
+                    <div className={styles.errorMessage}>
+                        {t(`${type}.errors.${error}`)}
+                    </div>
+                )}
+                
                 <form onSubmit={handleSubmit}>
                     <input 
                         ref={emailRef}
