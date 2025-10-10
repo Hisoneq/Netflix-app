@@ -1,12 +1,9 @@
 import Modal from "../Modal/Modal"
 import { useTranslation } from "react-i18next"
-import FavoriteButton from "../FavoriteButton/FavoriteButton"
 import styles from "./MovieDetailsModal.module.css"
-import { useAuth } from "../../hooks/use-auth"
 
 export default function MovieDetailsModal({ isOpen, movie, onClose }) {
     const { t, i18n } = useTranslation();
-    const { isAuth } = useAuth();
     
     if (!isOpen || !movie) return null;
     
@@ -35,12 +32,6 @@ export default function MovieDetailsModal({ isOpen, movie, onClose }) {
               <span className={styles.rating}>⭐ {movie.rating}</span>
               {movie.year && <span className={styles.year}>{movie.year}</span>}
               {movie.duration && <span className={styles.duration}>{movie.duration} {t('modal.min')}</span>}
-              {
-                isAuth && 
-                <div className={styles.favoriteBtn}>
-                    <FavoriteButton movieId={movie.id} />
-                </div>
-              }
             </div>
             
             {movie.genreKeys && (
