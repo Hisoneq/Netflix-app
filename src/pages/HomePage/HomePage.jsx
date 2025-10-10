@@ -17,12 +17,7 @@ import { FAQS_DATA } from "../../data/faqs"
 export default function HomePage() {
   const { t } = useTranslation();
 
-  const movies = useMemo(() => 
-    MOVIES_DATA.map(movie => ({
-      ...movie,
-      title: t(movie.titleKey)
-    }))
-  , [t]);
+  const movies = useMemo(() => MOVIES_DATA, []);
 
   const reasonsCards = useMemo(() => 
     REASONS_DATA.map(reason => ({

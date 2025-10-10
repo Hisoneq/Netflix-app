@@ -3,9 +3,10 @@ import MovieCard from "../MovieCard/MovieCard"
 import MovieDetailsModal from "../MovieDetailsModal/MovieDetailsModal"
 import styles from "./MovieSlider.module.css"
 import { useModal } from "../../hooks/useModal"
+import { useTranslation } from "react-i18next"
 
 export default function MovieSlider({movies}) {
-
+    const { t } = useTranslation();
     const [isAnimating, setIsAnimating] = useState(false);
     const [currentSlide, setCurrentSlide] = useState(0);
     const { isOpen, openModal, closeModal, modalContent } = useModal();
@@ -38,16 +39,16 @@ export default function MovieSlider({movies}) {
                         className={`${styles.moviesGrid} ${isAnimating ? styles.animating : ''}`}
                         style={{ transform: `translateX(-${currentSlide * 230}px)` }}
                     >
-                        {movies.map(movie => (
-                            <MovieCard 
-                                key={movie.id} 
-                                image={movie.image} 
-                                rating={movie.rating} 
-                                title={movie.title} 
-                                id={movie.id}
-                                onClick={() => openModal(movie)}
-                            />
-                        ))}
+                    {movies.map(movie => (
+                        <MovieCard 
+                            key={movie.id} 
+                            image={movie.image} 
+                            rating={movie.rating} 
+                            title={t(movie.titleKey)} 
+                            id={movie.id}
+                            onClick={() => openModal(movie)}
+                        />
+                    ))}
                     </div>
                 </div>
 

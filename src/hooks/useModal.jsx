@@ -4,9 +4,9 @@ export function useModal(){
     const [isOpen, setIsOpen] = useState(false);
     const [modalContent, setModalContent] = useState(null);
 
-    const openModal = (modalContent) => {
+    const openModal = (content) => {
+        setModalContent(content)
         setIsOpen(true)
-        setModalContent(modalContent)
     };
     const closeModal = () => {
         setIsOpen(false)

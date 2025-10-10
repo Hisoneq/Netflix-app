@@ -33,11 +33,7 @@ export default function Favorites(){
                 const favoriteIds = favorites.map(f => Number(f.movieId));
                 
                 const movies = MOVIES_DATA
-                    .filter(movie => favoriteIds.includes(movie.id))
-                    .map(movie => ({
-                        ...movie,
-                        title: t(movie.titleKey)
-                    }));
+                    .filter(movie => favoriteIds.includes(movie.id));
                 
                 setFavoriteMovies(movies);
             } catch (error) {
@@ -48,10 +44,59 @@ export default function Favorites(){
         };
 
         loadFavorites();
-    }, [userId, t]);
+    }, [userId]);
 
     if (!isAuth) {
         return (
+            <>
+                <div className={style.favorites}>
+                    <img 
+                        src={logo} 
+                        alt="Logo"
+                        width={200}
+                        onClick={() => navigate("/")}
+                        style={{ cursor: "pointer" }}
+                    />
+                    <div className={style.titleContainer}>
+                        <Title title={t('favorites.title')} />
+                    </div>
+                    <p className={style.message}>{t('favorites.pleaseLogin')}</p>
+                </div>
+                <MovieDetailsModal 
+                    isOpen={isOpen}
+                    movie={modalContent}
+                    onClose={closeModal}
+                />
+            </>
+        );
+    }
+
+    if (loading) {
+        return (
+            <>
+                <div className={style.favorites}>
+                    <img 
+                        src={logo} 
+                        alt="Logo"
+                        width={200}
+                        onClick={() => navigate("/")}
+                        style={{ cursor: "pointer" }}
+                    />
+                    <div className={style.loaderContainer}>
+                        <Loader />
+                    </div>
+                </div>
+                <MovieDetailsModal 
+                    isOpen={isOpen}
+                    movie={modalContent}
+                    onClose={closeModal}
+                />
+            </>
+        );
+    }
+
+    return(
+        <>
             <div className={style.favorites}>
                 <img 
                     src={logo} 
@@ -63,63 +108,30 @@ export default function Favorites(){
                 <div className={style.titleContainer}>
                     <Title title={t('favorites.title')} />
                 </div>
-                <p className={style.message}>{t('favorites.pleaseLogin')}</p>
+                
+                {favoriteMovies.length === 0 ? (
+                    <p className={style.message}>{t('favorites.empty')}</p>
+                ) : (
+                    <div className={style.moviesGrid}>
+                        {favoriteMovies.map(movie => (
+                            <MovieCard 
+                                key={movie.id}
+                                id={movie.id}
+                                image={movie.image}
+                                rating={movie.rating}
+                                title={t(movie.titleKey)}
+                                onClick={() => openModal(movie)}
+                            />
+                        ))}
+                    </div>
+                )}
             </div>
-        );
-    }
-
-    if (loading) {
-        return (
-            <div className={style.favorites}>
-                <img 
-                    src={logo} 
-                    alt="Logo"
-                    width={200}
-                    onClick={() => navigate("/")}
-                    style={{ cursor: "pointer" }}
-                />
-                <div className={style.loaderContainer}>
-                    <Loader />
-                </div>
-            </div>
-        );
-    }
-
-    return(
-        <div className={style.favorites}>
-            <img 
-                src={logo} 
-                alt="Logo"
-                width={200}
-                onClick={() => navigate("/")}
-                style={{ cursor: "pointer" }}
-            />
-            <div className={style.titleContainer}>
-                <Title title={t('favorites.title')} />
-            </div>
-            
-            {favoriteMovies.length === 0 ? (
-                <p className={style.message}>{t('favorites.empty')}</p>
-            ) : (
-                <div className={style.moviesGrid}>
-                    {favoriteMovies.map(movie => (
-                        <MovieCard 
-                            key={movie.id}
-                            id={movie.id}
-                            image={movie.image}
-                            rating={movie.rating}
-                            title={movie.title}
-                            onClick={() => openModal(movie)}
-                        />
-                    ))}
-                </div>
-            )}
 
             <MovieDetailsModal 
                 isOpen={isOpen}
                 movie={modalContent}
                 onClose={closeModal}
             />
-        </div>
+        </>
     )
 }
