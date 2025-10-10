@@ -11,11 +11,8 @@ import MembershipForm from "../../Components/MembershipForm/MembershipForm"
 import FAQGroup from "../../Components/FAQGroup/FAQGroup"
 
 import { MOVIES_DATA } from "../../data/movies"
-
-import Dekstop from "../../assets/images/Dekstop.png"
-import Download from "../../assets/images/Download.png"
-import Telescope from "../../assets/images/Telescope.webp"
-import HappyBox from "../../assets/images/HappyBox.png"
+import { REASONS_DATA } from "../../data/reasons"
+import { FAQS_DATA } from "../../data/faqs"
 
 export default function HomePage() {
   const { t } = useTranslation();
@@ -27,22 +24,20 @@ export default function HomePage() {
     }))
   , [t]);
 
-  const reasonsCards = useMemo(() => [
-    { title: t('reasons.enjoyOnTV.title'), description: t('reasons.enjoyOnTV.description'), image: Dekstop },
-    { title: t('reasons.download.title'), description: t('reasons.download.description'), image: Download },
-    { title: t('reasons.watchEverywhere.title'), description: t('reasons.watchEverywhere.description'), image: Telescope },
-    { title: t('reasons.kidsProfiles.title'), description: t('reasons.kidsProfiles.description'), image: HappyBox },
-  ], [t]);
+  const reasonsCards = useMemo(() => 
+    REASONS_DATA.map(reason => ({
+      title: t(reason.titleKey),
+      description: t(reason.descriptionKey),
+      image: reason.image
+    }))
+  , [t]);
 
-  const FAQs = useMemo(() => [
-    { title: t('faq.whatIsNetflix.title'), description: t('faq.whatIsNetflix.description') },
-    { title: t('faq.howMuch.title'), description: t('faq.howMuch.description') },
-    { title: t('faq.whereWatch.title'), description: t('faq.whereWatch.description') },
-    { title: t('faq.howCancel.title'), description: t('faq.howCancel.description') },
-    { title: t('faq.whatWatch.title'), description: t('faq.whatWatch.description') },
-    { title: t('faq.goodForKids.title'), description: t('faq.goodForKids.description') },
-    { title: t('faq.language.title'), description: t('faq.language.description') },
-  ], [t]);
+  const FAQs = useMemo(() => 
+    FAQS_DATA.map(faq => ({
+      title: t(faq.titleKey),
+      description: t(faq.descriptionKey)
+    }))
+  , [t]);
 
   // const { isAuth, email } = useAuth();
 
