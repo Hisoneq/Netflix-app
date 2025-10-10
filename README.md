@@ -328,4 +328,3 @@ npm run build
 ---
 
 **Стек:** React 19 • Vite • Firebase • Redux Toolkit • i18next  
-**Автор:** Roma Mironovic
