@@ -86,6 +86,19 @@
     background-color: rgb(188, 0, 0);
 }
 
+.buttonDisabled{
+    background-color: rgba(201, 0, 0, 0.647);
+    color: var(--color-text-primary);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: not-allowed;
+    transition: all 0.3s ease;
+}
+
+.buttonDisabled:hover{
+    background-color: rgba(201, 0, 0, 0.8);
+}
+
 .headerText{
     display: flex;
     flex-direction: column;

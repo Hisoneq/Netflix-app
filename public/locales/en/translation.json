@@ -6,7 +6,8 @@
     "readyToWatch": "Ready to watch? Enter your email to create or restart your membership.",
     "emailPlaceholder": "Email address",
     "getStarted": "Get Started →",
-    "logout": "Logout"
+    "logout": "Logout",
+    "favorites": "Favorites"
   },
   "login": {
     "signIn": "Sign In",
@@ -45,6 +46,12 @@
       "operationNotAllowed": "Registration is temporarily unavailable",
       "default": "Registration error. Please try again"
     }
+  },
+
+  "favorites":{
+    "title": "Your favorites",
+    "pleaseLogin": "Please log in to see your favorites",
+    "empty": "You don't have any favorites yet. Add movies to your favorites from the home page!"
   },
   "membership": {
     "readyToWatch": "Ready to watch? Enter your email to create or restart your membership.",

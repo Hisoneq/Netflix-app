@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 
-import { HomePage, LoginPage, RegisterPage } from "./pages"
+import { HomePage, LoginPage, RegisterPage, FavoritePage } from "./pages"
 import AuthProvider from "./Components/AuthProvider/AuthProvider"
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/favorites" element={<FavoritePage />}/>
       </Routes>
     </AuthProvider>
   )

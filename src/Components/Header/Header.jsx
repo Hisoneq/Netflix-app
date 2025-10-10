@@ -39,6 +39,11 @@ export default function Header(){
         }
     }
 
+    const handleFavorites = (e) => {
+        e.preventDefault()
+        navigate('/favorites')
+    }
+
     const handleLogout = () => {
         const auth = getAuth();
         signOut(auth)
@@ -80,8 +85,15 @@ export default function Header(){
 
                     {
                         isAuth ? 
-                        <button className={styles.button} onClick={handleLogout}>{t('header.logout')}</button> :
-                        <button className={styles.button} onClick={handleSignIn}>{t('header.signIn')}</button>
+                        <>
+                            <button className={styles.button} onClick={handleLogout}>{t('header.logout')}</button> 
+                            <button className={styles.button} onClick={handleFavorites}>{t('header.favorites')}</button>
+                        </>
+                        :
+                        <>
+                            <button className={styles.button} onClick={handleSignIn}>{t('header.signIn')}</button>
+                            <button className={styles.buttonDisabled}>{t('header.favorites')}</button>
+                        </>
                     }
                     
                 </div>
