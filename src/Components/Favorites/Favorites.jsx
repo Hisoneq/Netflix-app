@@ -5,10 +5,12 @@ import logo from "../../assets/images/LogoNetflix.png"
 import Title from "../Title/Title";
 import { useTranslation } from "react-i18next"
 import MovieCard from "../MovieCard/MovieCard"
+import MovieDetailsModal from "../MovieDetailsModal/MovieDetailsModal"
 import { useAuth } from "../../hooks/use-auth"
 import { getUserFavorites } from "../../utils/favorites"
 import { MOVIES_DATA } from "../../data/movies"
 import Loader from "../Loader/Loader"
+import { useModal } from "../../hooks/useModal"
 
 
 export default function Favorites(){
@@ -17,6 +19,7 @@ export default function Favorites(){
     const { id: userId, isAuth } = useAuth();
     const [favoriteMovies, setFavoriteMovies] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { isOpen, openModal, closeModal, modalContent } = useModal();
 
     useEffect(() => {
         const loadFavorites = async () => {
@@ -106,10 +109,17 @@ export default function Favorites(){
                             image={movie.image}
                             rating={movie.rating}
                             title={movie.title}
+                            onClick={() => openModal(movie)}
                         />
                     ))}
                 </div>
             )}
+
+            <MovieDetailsModal 
+                isOpen={isOpen}
+                movie={modalContent}
+                onClose={closeModal}
+            />
         </div>
     )
 }

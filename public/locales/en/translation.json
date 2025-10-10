@@ -128,6 +128,21 @@
     "english": "English",
     "russian": "Русский"
   },
+  "modal": {
+    "director": "Director",
+    "min": "min"
+  },
+  "genres": {
+    "drama": "Drama",
+    "comedy": "Comedy",
+    "sciFi": "Sci-Fi",
+    "action": "Action",
+    "thriller": "Thriller",
+    "crime": "Crime",
+    "adventure": "Adventure",
+    "romance": "Romance",
+    "biography": "Biography"
+  },
   "movies": {
     "trumanShow": "The Truman Show",
     "inception": "Inception",
@@ -138,7 +153,17 @@
     "forrestGump": "Forrest Gump",
     "shawshank": "The Shawshank Redemption",
     "goodfellas": "Goodfellas",
-    "godfather": "The Godfather"
+    "godfather": "The Godfather",
+    "trumanShow.description": "An insurance salesman discovers his whole life is actually a reality TV show.",
+    "inception.description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+    "darkKnight.description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests.",
+    "interstellar.description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    "pulpFiction.description": "The lives of two mob hitmen, a boxer, a gangster and his wife intertwine in four tales of violence and redemption.",
+    "matrix.description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+    "forrestGump.description": "The story of a simple man with a low IQ but good intentions, and his epic journey through historical events.",
+    "shawshank.description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+    "goodfellas.description": "The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen and his partners Jimmy and Tommy.",
+    "godfather.description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son."
   }
 }
 

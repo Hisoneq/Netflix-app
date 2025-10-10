@@ -4,6 +4,7 @@
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+    transition: transform 0.3s ease;
 }
 
 .card img{
@@ -11,6 +12,11 @@
     height: 100%;
     object-fit: cover;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.clickableImage:hover {
+    transform: scale(1.05);
 }
 
 .rating{
@@ -23,6 +29,7 @@
     border-radius: 5px;
     font-weight: 600;
     font-size: 0.9rem;
+    z-index: 2;
 }
 
 .title{
@@ -36,8 +43,9 @@
     font-weight: 600;
     font-size: 1rem;
     text-align: center;
+    z-index: 2;
 }
 
 .card:hover {
-    transform: scale(1.01);
+    transform: scale(1.02);
 }
